@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SalesOrdersDatabase2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SalesOrdersDatabase2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -25,6 +25,14 @@
           <Property Name="CustomerZipCode" Type="nvarchar" MaxLength="10" />
           <Property Name="CustomerAreaCode" Type="smallint" />
           <Property Name="CustomerPhoneNumber" Type="nvarchar" MaxLength="8" />
+          <Property Name="BillingAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="BillingState" Type="char" MaxLength="2" />
+          <Property Name="BillingPostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="BillingCreditCardNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="BillingExpireMonth" Type="nvarchar" MaxLength="12" />
+          <Property Name="BillingExpireYear" Type="nvarchar" MaxLength="4" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Employees">
           <Key>
@@ -59,6 +67,10 @@
           <Property Name="OrderShipDate" Type="datetime" />
           <Property Name="CustomerID" Type="int" />
           <Property Name="EmployeeID" Type="int" />
+          <Property Name="ShippingAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShippingCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="ShippingState" Type="nchar" MaxLength="2" />
+          <Property Name="ShippingPostalCode" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -220,8 +232,7 @@
             <End Role="ProductVendors" EntitySet="ProductVendors" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SalesOrdersDatabase2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -247,6 +258,14 @@
           <Property Name="CustomerAreaCode" Type="Int16" />
           <Property Name="CustomerPhoneNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="Self.OrdersFK00" FromRole="Customers" ToRole="Orders" />
+          <Property Name="BillingAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BillingState" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="BillingPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCreditCardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BillingExpireMonth" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="BillingExpireYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -287,6 +306,10 @@
           <NavigationProperty Name="Customer" Relationship="Self.OrdersFK00" FromRole="Orders" ToRole="Customers" />
           <NavigationProperty Name="Employee" Relationship="Self.OrdersFK01" FromRole="Orders" ToRole="Employees" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDetailsFK00" FromRole="Orders" ToRole="OrderDetails" />
+          <Property Name="ShippingAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="ShippingPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -471,6 +494,14 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="SalesOrdersDatabase2Model.Customer">
               <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="BillingExpireYear" ColumnName="BillingExpireYear" />
+                <ScalarProperty Name="BillingExpireMonth" ColumnName="BillingExpireMonth" />
+                <ScalarProperty Name="BillingCreditCardNumber" ColumnName="BillingCreditCardNumber" />
+                <ScalarProperty Name="BillingPostalCode" ColumnName="BillingPostalCode" />
+                <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+                <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+                <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="CustomerFirstName" ColumnName="CustomerFirstName" />
                 <ScalarProperty Name="CustomerLastName" ColumnName="CustomerLastName" />
@@ -511,6 +542,10 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="SalesOrdersDatabase2Model.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="ShippingPostalCode" ColumnName="ShippingPostalCode" />
+                <ScalarProperty Name="ShippingState" ColumnName="ShippingState" />
+                <ScalarProperty Name="ShippingCity" ColumnName="ShippingCity" />
+                <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="OrderShipDate" ColumnName="OrderShipDate" />

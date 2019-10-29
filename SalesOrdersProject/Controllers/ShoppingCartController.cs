@@ -61,5 +61,51 @@ namespace SalesOrdersProject.Controllers
 
             return cart;
         }
+
+        public ViewResult ShippingInfo()
+        {
+            return View(new ShippingInfo());
+        }
+
+        [HttpPost]
+        public ActionResult ShippingInfo(ShippingInfo shippingInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                ShoppingCartModel cart = GetCart();
+                cart.ShippingInfo = shippingInfo;
+
+                return RedirectToAction("BillingInfo");
+            }
+            else
+            {
+                return View(shippingInfo);
+            }
+        }
+
+        [HttpGet]
+        public ViewResult BillingInfo()
+        {
+            return View(new BillingInfo());
+        }
+
+        [HttpPost]
+        public ViewResult BillingInfo(BillingInfo billingInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                ShoppingCartModel cart = GetCart();
+                cart.BillingInfo = billingInfo;
+
+                ProcessOrder(cart);
+                cart.Clear();
+
+                return View("OrderComplete");
+            }
+            else
+            {
+                return View(billingInfo);
+            }
+        }
     }
 }

@@ -25,6 +25,10 @@ namespace SalesOrdersProject.Models
         public Nullable<System.DateTime> OrderShipDate { get; set; }
         public Nullable<int> CustomerID { get; set; }
         public Nullable<int> EmployeeID { get; set; }
+        public string ShippingAddress { get; set; }
+        public string ShippingCity { get; set; }
+        public string ShippingState { get; set; }
+        public string ShippingPostalCode { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Employee Employee { get; set; }

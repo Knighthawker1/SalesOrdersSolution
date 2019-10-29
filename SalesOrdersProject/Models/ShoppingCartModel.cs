@@ -51,7 +51,7 @@ namespace SalesOrdersProject.Models
             items.Clear();
         }
 
-        //public ShippingInfo ShippingInfo { get; set; }
-        //public BillingInfo BillingInfo { get; set; }
+        public ShippingInfo ShippingInfo { get; set; }
+        public BillingInfo BillingInfo { get; set; }
     }
 }

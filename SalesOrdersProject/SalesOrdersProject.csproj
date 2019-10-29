@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\PaginationHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BillingInfo.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>SalesOrdersDatabase2Context.tt</DependentUpon>
     </Compile>
@@ -222,6 +223,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SalesOrdersDatabase2Context.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShippingInfo.cs" />
     <Compile Include="Models\ShoppingCartModel.cs" />
     <Compile Include="Models\ShoppingCartItemModel.cs" />
     <Compile Include="Models\ShoppingCartViewModel.cs" />
@@ -351,6 +353,8 @@
     <Content Include="Views\ItemDetails\Index.cshtml" />
     <Content Include="Views\Shop\Product.cshtml" />
     <Content Include="Views\ShoppingCart\CartWidget.cshtml" />
+    <Content Include="Views\ShoppingCart\ShippingInfo.cshtml" />
+    <Content Include="Views\ShoppingCart\BillingInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

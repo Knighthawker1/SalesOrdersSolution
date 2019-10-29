@@ -12,7 +12,15 @@ CREATE TABLE Customers (
 	CustomerState 				NVARCHAR (2) 	NULL,
 	CustomerZipCode 			NVARCHAR (10) 	NULL,
 	CustomerAreaCode 			SMALLINT 		NULL,
-	CustomerPhoneNumber 		NVARCHAR (8) 	NULL 
+	CustomerPhoneNumber 		NVARCHAR (8) 	NULL,
+	BillingAddress              NVARCHAR (50)   NULL,
+    BillingCity                 NVARCHAR (30)   NULL,
+    BillingState                CHAR     (2)    NULL,
+    BillingPostalCode           NVARCHAR (10)   NULL,
+    BillingCreditCardNumber]    NVARCHAR (20)   NULL,
+    BillingExpireMonth]         NVARCHAR (12)   NULL,
+    BillingExpireYear]          NVARCHAR (4)    NULL,
+    Password]                   NVARCHAR (100)  NULL,
 );
 
 CREATE TABLE Employees (
@@ -64,7 +72,11 @@ CREATE TABLE Orders (
 	OrderDate 					datetime 		NULL,
 	OrderShipDate 				datetime 		NULL,
 	CustomerID 					INT 			NULL,
-	EmployeeID 					INT 			NULL 
+	EmployeeID 					INT 			NULL,
+	ShippingAddress             NVARCHAR (50)   NULL,
+    ShippingCity                NVARCHAR (30)   NULL,
+    ShippingState               NCHAR    (2)    NULL,
+    ShippingPostalCode          NVARCHAR (10)   NULL
 );
 
 CREATE TABLE OrderDetails (

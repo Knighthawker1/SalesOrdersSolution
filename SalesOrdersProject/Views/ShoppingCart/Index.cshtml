@@ -25,7 +25,6 @@
             <td>@item.Product.ProductPrice</td>
             <td>@(item.Quantity * item.Product.ProductPrice)</td>
 
-            <!-- Button below will not be operational -->
             <td>
                 @using (Html.BeginForm("RemoveFromCart", "ShoppingCart"))
                 {
@@ -52,7 +51,6 @@
         Continue Shopping
     </a>
 
-    <!-- Button below will not be operational -->
     @Html.ActionLink("Checkout", "ShippingInfo", null,
                      new { @class = "btn btn-primary" })
 </div>
