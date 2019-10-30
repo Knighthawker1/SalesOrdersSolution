@@ -97,7 +97,7 @@ namespace SalesOrdersProject.Controllers
                 ShoppingCartModel cart = GetCart();
                 cart.BillingInfo = billingInfo;
 
-                ProcessOrder(cart);
+                //ProcessOrder(cart);
                 cart.Clear();
 
                 return View("OrderComplete");
