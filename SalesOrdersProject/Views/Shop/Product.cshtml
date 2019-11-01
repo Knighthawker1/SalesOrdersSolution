@@ -1,7 +1,7 @@
 ﻿@model SalesOrdersProject.Models.Product
 
-    <div style="display: inline-block">
-        <div style="width: 30%; float: left;">
+    <div class="row align-middle">
+        <div class="col-md-4 align-middle">
             <img src="@Url.Content(Model.ProductImage)"
                  width="200"
                  height="150"
@@ -9,7 +9,7 @@
                  title="@Model.ProductName" />
         </div>
 
-        <div style="width: 70%; float: left;">
+        <div class="col-md-8 align-middle">
             <h3>@Html.DisplayFor(modelModel => Model.ProductName)</h3>
 
             <p>@Html.DisplayFor(modelModel => Model.ProductDescShort)</p>
