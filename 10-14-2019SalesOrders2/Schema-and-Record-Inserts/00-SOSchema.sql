@@ -13,14 +13,15 @@ CREATE TABLE Customers (
 	CustomerZipCode 			NVARCHAR (10) 	NULL,
 	CustomerAreaCode 			SMALLINT 		NULL,
 	CustomerPhoneNumber 		NVARCHAR (8) 	NULL,
+	CustomerEmailAddress        NVARCHAR (100)  NULL,
+    CustomerPassword            NVARCHAR (50)  NULL,
 	BillingAddress              NVARCHAR (50)   NULL,
     BillingCity                 NVARCHAR (30)   NULL,
     BillingState                CHAR     (2)    NULL,
     BillingPostalCode           NVARCHAR (10)   NULL,
-    BillingCreditCardNumber]    NVARCHAR (20)   NULL,
-    BillingExpireMonth]         NVARCHAR (12)   NULL,
-    BillingExpireYear]          NVARCHAR (4)    NULL,
-    Password]                   NVARCHAR (100)  NULL,
+    BillingCreditCardNumber     NVARCHAR (20)   NULL,
+    BillingExpireMonth          NVARCHAR (12)   NULL,
+    BillingExpireYear           NVARCHAR (4)    NULL
 );
 
 CREATE TABLE Employees (
