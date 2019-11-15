@@ -33,7 +33,9 @@
 
     foreach (var item in Model.Products)
     {
-        @Html.Partial("Product", item)
+        <div class="align-middle">
+            @Html.Partial("Product", item)
+        </div>
         @*<div style="display: inline-block">
                     <div style="width: 30%; float: left;">
                         <img src="@item.ProductImage" width="200" height="150"

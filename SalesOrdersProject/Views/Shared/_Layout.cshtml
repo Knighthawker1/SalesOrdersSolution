@@ -1,7 +1,8 @@
 ﻿<head>
     <meta name="viewport" content="width=" device-width" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Normazlie.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -36,14 +37,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-lg-2">
 
             </div>
-            <div id="main" class="col-md-auto">
-                <div">
-                    @RenderBody()
+            <div id="main" class="col-md-auto center-block">
+                @RenderBody()
             </div>
-            <div class="col">
+            <div class="col-lg-2">
 
             </div>
         </div>
