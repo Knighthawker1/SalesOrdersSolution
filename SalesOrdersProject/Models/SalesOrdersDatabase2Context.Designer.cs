@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\johnf\Google Drive\College\Ranken\ASP .Net\Jeff Scott's Version\SalesOrdersSolution\SalesOrdersProject\Models\SalesOrdersDatabase2Context.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\johnf\Google Drive\College\Ranken\ASP .Net\In-Class Project\SalesOrdersSolution\SalesOrdersProject\Models\SalesOrdersDatabase2Context.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
