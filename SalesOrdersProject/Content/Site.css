@@ -38,3 +38,11 @@ textarea {
 .row{
     margin: 25px;
 }
+
+.HomeText {
+    font-size: large;
+}
+
+.carousel-inner img {
+    margin: auto;
+}

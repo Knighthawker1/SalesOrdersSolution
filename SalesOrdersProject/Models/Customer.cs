@@ -11,7 +11,8 @@ namespace SalesOrdersProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,23 +23,39 @@ namespace SalesOrdersProject.Models
     
         public int CustomerID { get; set; }
         public string CustomerFirstName { get; set; }
+        [StringLength(25)]
         public string CustomerLastName { get; set; }
+        [StringLength(25)]
         public string CustomerStreetAddress { get; set; }
+        [StringLength(50)]
         public string CustomerCity { get; set; }
+        [StringLength(30)]
         public string CustomerState { get; set; }
+        [StringLength(2)]
         public string CustomerZipCode { get; set; }
+        [StringLength(10)]
         public Nullable<short> CustomerAreaCode { get; set; }
         public string CustomerPhoneNumber { get; set; }
+        [StringLength(8)]
         public string BillingAddress { get; set; }
+        [StringLength(50)]
         public string BillingCity { get; set; }
+        [StringLength(30)]
         public string BillingState { get; set; }
+        [StringLength(2)]
         public string BillingPostalCode { get; set; }
+        [StringLength(10)]
         public string BillingCreditCardNumber { get; set; }
+        [StringLength(20)]
         public string BillingExpireMonth { get; set; }
+        [StringLength(12)]
         public string BillingExpireYear { get; set; }
+        [StringLength(4)]
         public string CustomerEmailAddress { get; set; }
+        [StringLength(100)]
         public string CustomerPassword { get; set; }
-    
+        [StringLength(50)]
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

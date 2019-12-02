@@ -280,6 +280,9 @@
     <Content Include="Content\images\38-Viscount-Tru-Beat-Heart-Transmitter.jpg" />
     <Content Include="Content\images\39-Wonder-Wood-Cycle-Socks.jpg" />
     <Content Include="Content\images\40-X-Pro-All-Weather-Tires.jpg" />
+    <Content Include="Content\images\BikingTrail1.jpg" />
+    <Content Include="Content\images\BikingTrail2.jpg" />
+    <Content Include="Content\images\BikingTrail3.jpg" />
     <Content Include="Content\Normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
