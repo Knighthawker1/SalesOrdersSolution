@@ -72,7 +72,7 @@ namespace SalesOrdersProject.Models
         [Display(Name = "Email Address")]
         public string CustomerEmailAddress;
 
-        [StringLength(50)]
+        [StringLength(100)]
         [Display(Name = "Password")]
         public string CustomerPassword;
     }

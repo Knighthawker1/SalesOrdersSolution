@@ -14,7 +14,6 @@ namespace SalesOrdersProject.Controllers
         public ShoppingCartController()
         { }
 
-
         // GET: ShoppingCart
         public ViewResult Index(string returnUrl)
         {
@@ -102,7 +101,7 @@ namespace SalesOrdersProject.Controllers
                 ShoppingCartModel cart = GetCart();
                 cart.BillingInfo = billingInfo;
 
-                //ProcessOrder(cart);
+                ProcessOrder(cart);
                 cart.Clear();
 
                 return View("OrderComplete");
@@ -116,29 +115,29 @@ namespace SalesOrdersProject.Controllers
         private void ProcessOrder(ShoppingCartModel cart)
         {
             string idString = System.Web.HttpContext.Current.User.Identity.Name;
-            int customerId = int.Parse(idString);
+            int customerID = int.Parse(idString);
 
-            Customer customer = db.Customers.SingleOrDefault(c => c.CustomerID == customerId);
+            Customer customer = db.Customers.SingleOrDefault(c => c.CustomerID == customerID);
 
-            customer.CustomerFirstName       = cart.BillingInfo.FirstName;
-            customer.CustomerLastName        = cart.BillingInfo.LastName;
-            customer.BillingAddress          = cart.BillingInfo.Address;
-            customer.BillingCity             = cart.BillingInfo.City;
-            customer.BillingState            = cart.BillingInfo.State;
-            customer.BillingPostalCode       = cart.BillingInfo.PostalCode;
+            customer.CustomerFirstName = cart.BillingInfo.FirstName;
+            customer.CustomerLastName = cart.BillingInfo.LastName;
+            customer.BillingAddress = cart.BillingInfo.Address;
+            customer.BillingCity = cart.BillingInfo.City;
+            customer.BillingState = cart.BillingInfo.State;
+            customer.BillingPostalCode = cart.BillingInfo.PostalCode;
             customer.BillingCreditCardNumber = cart.BillingInfo.CreditCardNumber;
-            customer.BillingExpireMonth      = cart.BillingInfo.ExpireMonth;
-            customer.BillingExpireMonth      = cart.BillingInfo.ExpireYear;
+            customer.BillingExpireMonth = cart.BillingInfo.ExpireMonth;
+            customer.BillingExpireYear = cart.BillingInfo.ExpireYear;
 
             db.SaveChanges();
 
             Order order = new Order
             {
-                CustomerID         = customer.CustomerID,
-                OrderDate          = DateTime.Now,
-                ShippingAddress    = cart.ShippingInfo.Address,
-                ShippingCity       = cart.ShippingInfo.City,
-                ShippingState      = cart.ShippingInfo.State,
+                CustomerID = customer.CustomerID,
+                OrderDate = DateTime.Now,
+                ShippingAddress = cart.ShippingInfo.Address,
+                ShippingCity = cart.ShippingInfo.City,
+                ShippingState = cart.ShippingInfo.State,
                 ShippingPostalCode = cart.ShippingInfo.PostalCode
             };
 

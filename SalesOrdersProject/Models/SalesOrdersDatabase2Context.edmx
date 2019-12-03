@@ -26,7 +26,7 @@
           <Property Name="CustomerAreaCode" Type="smallint" />
           <Property Name="CustomerPhoneNumber" Type="nvarchar" MaxLength="8" />
           <Property Name="CustomerEmailAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="CustomerPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerPassword" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="BillingAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="BillingCity" Type="nvarchar" MaxLength="30" />
           <Property Name="BillingState" Type="char" MaxLength="2" />
@@ -267,7 +267,7 @@
           <Property Name="BillingExpireMonth" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="BillingExpireYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="CustomerEmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CustomerPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
