@@ -2,4 +2,9 @@
     ViewBag.Title = "Thanks";
 }
 
+@{ 
+    DateTime currentDate = DateTime.Now;
+}
+
 <h2>Thanks for your order!</h2>
+@currentDate.ToString("mmddyyyyHHmmff")

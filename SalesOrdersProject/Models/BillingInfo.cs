@@ -50,12 +50,30 @@ namespace SalesOrdersProject.Models
         {
             int currentYear = DateTime.Now.Year;
 
+            string[] yearArray = new string[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                yearArray[i] = currentYear.ToString();
+                currentYear++;
+            }
+
+
             return new SelectList(new string[]
             {
-                "2019", "2020", "2021", "2022",
-                "2023", "2024", "2025", "2026",
-                "2027", "2028", "2029", "2030"
+                yearArray[0],
+                yearArray[1],
+                yearArray[2],
+                yearArray[3],
+                yearArray[4],
+                yearArray[5],
+                yearArray[6],
+                yearArray[7],
+                yearArray[8],
+                yearArray[9]
             });
         }
+
+        
     }
 }

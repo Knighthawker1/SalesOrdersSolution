@@ -11,7 +11,6 @@ namespace SalesOrdersProject.Controllers
     public class LoginController : Controller
     {
         private SalesOrdersDatabase2Entities db = new SalesOrdersDatabase2Entities();
-
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -24,8 +23,7 @@ namespace SalesOrdersProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                //if (IsValid(customer.CustomerEmailAddress, customer.CustomerPassword))
-                if (IsValid(customer.CustomerEmailAddress))
+                if (IsValid(customer.CustomerEmailAddress, customer.CustomerPassword))
                 {
                     FormsAuthentication.SetAuthCookie(customer.CustomerID.ToString(), false);
 
@@ -39,28 +37,26 @@ namespace SalesOrdersProject.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The username and/or password is incorrect.  Try again");
+                    ModelState.AddModelError("", "The username and/or password is incorrect. Try again.");
                 }
             }
 
             return View(customer);
         }
 
-        //public bool IsValid(string Email, string Password)
-        public bool IsValid(string Email)
+        public bool IsValid(string Email, string Password)
         {
-            //string passwordHash = SHA256.Encode(Password);
+            string passwordHash = SHA256.Encode(Password);
 
             var data = from c in db.Customers
-                       where c.CustomerEmailAddress == Email
-                       // &&c.CustomerPassword == passwordHash
+                       where ((c.CustomerEmailAddress == Email) &&
+                                c.CustomerPassword == passwordHash)
                        select new
                        {
                            c.CustomerID,
-                           c.CustomerEmailAddress//,
-                           //c.CustomerPassword
+                           c.CustomerEmailAddress,
+                           c.CustomerPassword
                        };
-
             return data.Count() > 0;
         }
     }
